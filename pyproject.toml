@@ -1,0 +1,139 @@
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = [
+    "setuptools",
+    "setuptools-scm",
+]
+
+[project]
+authors = [
+    {email = "krishna.kumar@ucl.ac.uk", name = "Krishnakumar Gopalakrishnan"},
+]
+classifiers = [
+    "Operating System :: POSIX",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Typing :: Typed",
+]
+dependencies = []
+description = "LinkedIn Learning - Learning Python"
+dynamic = [
+    "version",
+]
+keywords = [
+]
+optional-dependencies = {dev = [
+    "black",
+    "build",
+    "mypy",
+    "pre-commit",
+    "pydata-sphinx-theme",
+    "pytest",
+    "pytest-cov",
+    "ruff",
+    "sphinx<7",
+    "sphinx_autodoc_typehints",
+    "twine",
+]}
+readme = "README.md"
+requires-python = ">=3.9,<=3.11"
+license.file = "LICENSE.md"
+urls.homepage = "https://github.com/krishnakumarg1984/learning-python-2896241"
+
+[tool.mypy]
+explicit_package_bases = true
+
+[tool.pytest.ini_options]
+addopts = "--color=yes -v"
+testpaths = [
+    "tests",
+]
+
+[tool.ruff]
+fix = true
+force-exclude = true
+ignore = [
+    "D203", # no-blank-line-before-class
+    "D212", # multi-line-summary-first-line
+    "D417", # argument description in docstring (unreliable)
+    "PLR2004", # magic values in comparisons
+    "RET505", # superfluous else return,
+    "UP007", # X | Y for type annotations (Python 3.10+ only)
+]
+per-file-ignores = {"test_*" = [
+    "D103",
+    "S101",
+]}
+select = [
+    "A",
+    "ARG",
+    "B",
+    "BLE",
+    "C",
+    "COM",
+    "D",
+    "DJ",
+    "DTZ",
+    "E",
+    "EM",
+    "ERA",
+    "EXE",
+    "F",
+    "FBT",
+    "I",
+    "ICN",
+    "ISC",
+    "N",
+    "NPY",
+    "PD",
+    "PGH",
+    "PIE",
+    "PL",
+    "PT",
+    "PTH",
+    "PYI",
+    "Q",
+    "RET",
+    "RSE",
+    "RUF",
+    "S",
+    "SIM",
+    "T",
+    "TCH",
+    "TID",
+    "UP",
+    "W",
+    "YTT",
+]
+target-version = "py39"
+isort.known-first-party = [
+    "dxss",
+]
+mccabe.max-complexity = 18
+pep8-naming.classmethod-decorators = [
+    "classmethod",
+    "pydantic.validator",
+]
+pydocstyle.convention = "google"
+pylint.max-args = 10
+
+[tool.tomlsort]
+all = true
+spaces_indent_inline_array = 4
+trailing_comma_inline_array = true
+overrides."project.classifiers".inline_arrays = false
+overrides."tool.coverage.paths.source".inline_arrays = false
+
+[tool.pylint.'MESSAGES CONTROL']
+disable = """
+    attribute-defined-outside-init,
+    invalid-name,
+    missing-class-docstring,
+    missing-function-docstring,
+    missing-module-docstring,
+    too-few-public-methods,
+"""
+
