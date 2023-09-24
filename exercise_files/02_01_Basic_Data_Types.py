@@ -23,9 +23,7 @@ print(x)
 
 x
 
-1x
-
-name = 'Ryan'
+name = "Ryan"
 
 type(name)
 
@@ -45,11 +43,11 @@ type(2j)
 
 # ## Strings
 
-'String 1 ' + 'String 2'
+"String 1 " + "String 2"
 
-'1' + '1'
+"1" + "1"
 
-'1' + 1
+# "1" + 1
 
 # ## Booleans
 
@@ -62,5 +60,3 @@ true = True
 1 == 1
 
 1 == 2
-
-

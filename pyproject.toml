@@ -131,6 +131,7 @@ overrides."tool.coverage.paths.source".inline_arrays = false
 disable = """
     attribute-defined-outside-init,
     invalid-name,
+    line-too-long,
     missing-class-docstring,
     missing-function-docstring,
     missing-module-docstring,

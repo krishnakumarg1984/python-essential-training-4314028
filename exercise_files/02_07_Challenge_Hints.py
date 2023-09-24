@@ -77,10 +77,10 @@ addNumbers(10)
 
 # -
 
+
 # Returns the value of the factorial of num if it is defined, otherwise, returns None
 def factorial(num):
     pass
-
 
 
 factorial(5)
@@ -92,5 +92,3 @@ factorial(-2)
 factorial(1.2)
 
 factorial("spam spam spam spam spam spam")
-
-

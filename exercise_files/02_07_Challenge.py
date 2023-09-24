@@ -35,27 +35,31 @@
 
 
 # Returns the value of the factorial of num if it is defined, otherwise, returns None
-def factorial(num):
-    pass
+from typing_extensions import Optional
 
+
+def factorial(num: int) -> Optional[int]:
+    if not isinstance(num, int) or num < 0:
+        return None
+    if num == 0:
+        return 1
+    return num * factorial(num - 1)
 
 
 # return 120
-factorial(5)
+print(factorial(5))
 
 # return 720
-factorial(6)
+print(factorial(6))
 
 # return 1
-factorial(0)
+print(factorial(0))
 
 # return None
-factorial(-2)
+print(factorial(-2))
 
 # return None
-factorial(1.2)
+print(factorial(1.2))
 
 # return None
-factorial("spam spam spam spam spam spam")
-
-
+print(factorial("spam spam spam spam spam spam"))
