@@ -24,57 +24,79 @@
 
 
 # +
-def encodeString(stringVal):
-    pass
+
+from typing import List, Tuple
 
 
-def decodeString(encodedList):
-    pass
+def encodeString(stringVal: str) -> List[Tuple[str, int]]:
+    last_char = ""
+    count = 0
+    encodedList = []
+    for char in stringVal:
+        if last_char == "":
+            last_char = char
+            count += 1
+        elif char == last_char:
+            count += 1
+        elif char != last_char:
+            encodedList.append((last_char, count))
+            last_char = char
+            count = 1
+    if count > 0:
+        encodedList.append((last_char, count))
+
+    return encodedList
+
+
+def decodeString(encodedList) -> str:
+    decodedStr = ""
+    for char in encodedList:
+        decodedStr += char[0] * char[1]
+    return decodedStr
 
 
 # -
 
 art = """
 
-                                                                                
-                                                                                
-                               %%%%%%%%%%%%%%%%%%%                              
-                        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                       
-                    %%%%%%%%                         %%%%%%%%                   
-                %%%%%%%                                   %%%%%%                
-              %%%%%%                                         %%%%%%             
-           %%%%%%                                               %%%%%           
-          %%%%%                                                   %%%%%         
-        %%%%%                                                       %%%%%       
-       %%%%                 %%%%%              %%%%%                  %%%%      
-      %%%%                 %%%%%%%            %%%%%%%                  %%%%     
-     %%%%                  %%%%%%%            %%%%%%%                   %%%%    
-    %%%%                   %%%%%%%            %%%%%%%                    %%%%   
-    %%%%                    %%%%%              %%%%%                     %%%%   
-   %%%%                                                                   %%%%  
-   %%%%                                                                   %%%%  
-   %%%%                                                                   %%%%  
-   %%%%                                                      %%%%        %%%%   
-    %%%%       %%%%%%                                        %%%%%       %%%%   
-    %%%%         %%%%                                       %%%%        %%%%    
-     %%%%         %%%%                                     %%%%         %%%%    
-      %%%%         %%%%%                                  %%%%         %%%%     
-       %%%%%         %%%%%                             %%%%%         %%%%%      
-        %%%%%          %%%%%%                        %%%%%          %%%%        
-          %%%%%           %%%%%%%               %%%%%%%           %%%%%         
-            %%%%%             %%%%%%%%%%%%%%%%%%%%%             %%%%%           
-              %%%%%%%                                        %%%%%              
-                 %%%%%%%                                 %%%%%%%                
-                     %%%%%%%%%                     %%%%%%%%%                    
-                          %%%%%%%%%%%%%%%%%%%%%%%%%%%%%                         
-                                   %%%%%%%%%%%%                                 
-                                                                                
-                                                                                 
+
+
+                               %%%%%%%%%%%%%%%%%%%
+                        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                    %%%%%%%%                         %%%%%%%%
+                %%%%%%%                                   %%%%%%
+              %%%%%%                                         %%%%%%
+           %%%%%%                                               %%%%%
+          %%%%%                                                   %%%%%
+        %%%%%                                                       %%%%%
+       %%%%                 %%%%%              %%%%%                  %%%%
+      %%%%                 %%%%%%%            %%%%%%%                  %%%%
+     %%%%                  %%%%%%%            %%%%%%%                   %%%%
+    %%%%                   %%%%%%%            %%%%%%%                    %%%%
+    %%%%                    %%%%%              %%%%%                     %%%%
+   %%%%                                                                   %%%%
+   %%%%                                                                   %%%%
+   %%%%                                                                   %%%%
+   %%%%                                                      %%%%        %%%%
+    %%%%       %%%%%%                                        %%%%%       %%%%
+    %%%%         %%%%                                       %%%%        %%%%
+     %%%%         %%%%                                     %%%%         %%%%
+      %%%%         %%%%%                                  %%%%         %%%%
+       %%%%%         %%%%%                             %%%%%         %%%%%
+        %%%%%          %%%%%%                        %%%%%          %%%%
+          %%%%%           %%%%%%%               %%%%%%%           %%%%%
+            %%%%%             %%%%%%%%%%%%%%%%%%%%%             %%%%%
+              %%%%%%%                                        %%%%%
+                 %%%%%%%                                 %%%%%%%
+                     %%%%%%%%%                     %%%%%%%%%
+                          %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                                   %%%%%%%%%%%%
+
+
 
 """
 
+# print(decodeString(encodeString("AAAAABBBBAAA")))
 encodedString = encodeString(art)
 
-decodeString(encodedString)
-
-
+print(decodeString(encodedString))
