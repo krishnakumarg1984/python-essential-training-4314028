@@ -37,6 +37,8 @@
 #
 
 # +
+from typing import Optional
+
 hexNumbers = {
     "0": 0,
     "1": 1,
@@ -59,28 +61,34 @@ hexNumbers = {
 
 # Converts a string hexadecimal number into an integer decimal
 # If hexNum is not a valid hexadecimal number, returns None
-def hexToDec(hexNum):
-    pass
+def hexToDec(hexNum: str) -> Optional[int]:
+    base = 16
+    exponent = 0
+    decNum = 0
+    for char in reversed(hexNum):
+        if char not in hexNumbers:
+            return None
+        decNum += hexNumbers[char] * base**exponent
+        exponent += 1
+    return decNum
 
 
 # -
 
 # 10
-hexToDec("A")
+print(hexToDec("A"))
 
 # 0
-hexToDec("0")
+print(hexToDec("0"))
 
 # 27
-hexToDec("1B")
+print(hexToDec("1B"))
 
-# 960
-hexToDec("3C0")
-
-# None
-hexToDec("A6G")
+# # 960
+print(hexToDec("3C0"))
 
 # None
-hexToDec("ZZTOP")
+print(hexToDec("A6G"))
 
-
+# None
+print(hexToDec("ZZTOP"))

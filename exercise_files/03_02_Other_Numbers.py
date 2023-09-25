@@ -46,5 +46,3 @@ Decimal(3.14)
 Decimal("3.14")
 
 round(1.2 - 1.0, 2)
-
-
