@@ -26,12 +26,19 @@
 #
 
 
-def allPrimesUpTo(num):
-    pass
+def allPrimesUpTo(max_num: int):
+    primes_list = [2]
+    for num in range(3, max_num):
+        sqrt_num = int(num**0.5)
+        for prime_factor in primes_list.copy():
+            if num % prime_factor == 0:
+                break  # Not prime
+            if prime_factor > sqrt_num:
+                primes_list.append(num)  # 'num' is prime!
+                break
+    return primes_list
 
 
-allPrimesUpTo(100)
+print(allPrimesUpTo(100))
 
-allPrimesUpTo(1000)
-
-
+print(allPrimesUpTo(1000))

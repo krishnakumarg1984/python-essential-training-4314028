@@ -42,11 +42,6 @@ for number in range(2, 100):
         print(f"{number} is prime!")
 
 
-
-
-
-
-
 def allPrimesUpTo(num):
     pass
 
@@ -54,5 +49,3 @@ def allPrimesUpTo(num):
 allPrimesUpTo(100)
 
 allPrimesUpTo(1000)
-
-
